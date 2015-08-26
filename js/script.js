@@ -6,9 +6,11 @@
 
 
 // variables
-var floridaQP;
 var lottery;
-//var lottery = prompt("Do you want to play the Florida Lottery or Powerball?");
+var floridaQP = [];
+
+
+var lottery = prompt("Do you want to play the Florida Lottery or Powerball?");
 
 
 //My Functions
@@ -39,18 +41,21 @@ function myLotto(lotto) {
 }
 
 //Function to generate Florida Lotto numbers
-function floridaLotto(){
+function floridaLotto(max, min, num){
+        for (var i = 0; i < num; i++){
+            floridaQP[i] = Math.random() * (max - min) + min;
+            floridaQP[i] = Math.round(floridaQP[i]);
+        }
+    console.log("Your Florida lottery quick pick numbers are " + floridaQP);
 
-        floridaQP = Math.random() * (53 - 1) + 1;
-        floridaQP = Math.round(floridaQP);
-        console.log(floridaQP);
-
+    return floridaLotto;
 }
 //functions
 
 // Main code that calls my functions
-//myLotto(lottery);
-floridaLotto();
+ myLotto(lottery);
+ floridaLotto(53, 1, 6);
+
     //var floridaLotto;
 
     //floridaLotto = Math.random() * (53 - 1) + 1;
