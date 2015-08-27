@@ -6,25 +6,30 @@
 
 
 // variables
-var lottery;
+
 var floridaQP = [];
 var powerballQP = [];
 var powerB = [];
 
 
 var lottery = prompt("Do you want to play the Florida Lottery or Powerball?");
-
+myLotto(lottery);
 
     if(lottery != "Florida Lottery") {
-        console.log("Good Luck! You are playing the Powerball Lottery.");
-        myLotto(lottery);
-        powerballLotto(59, 1, 5);
-        powerball(35,1,1);
+            if(lottery === ""){
+                console.log("Try again later.");
 
+            }else {
+                console.log("Good Luck! You are playing the Powerball Lottery.");
+
+                powerballLotto(59, 1, 5);
+                powerball(35, 1, 1);
+            }
 }   else {
         console.log("Good Luck! You are playing the Florida Lottery.");
         floridaLotto(53, 1, 6);
 }
+
 
 
 
@@ -56,6 +61,7 @@ function floridaLotto(max, min, num){
             floridaQP[i] = Math.random() * (max - min) + min;
             floridaQP[i] = Math.round(floridaQP[i]);
         }
+
     console.log("Your Florida lottery quick pick numbers are " + floridaQP);
 
 }
@@ -76,9 +82,11 @@ function powerball(max, min, num){
     for (var i = 0; i < num; i++) {
         powerB[i] = Math.random() * (max - min) + min;
         powerB[i] = Math.round(powerB[i]);
-        console.log("Your Powerball is " + powerB);
+
     }
+    console.log("Your Powerball is " + powerB);
 }
+
 
 
 
